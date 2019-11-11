@@ -1,0 +1,20 @@
+{
+    "name": "chatura/fireauth",
+    "description": "Firebase Authenticate Plugin",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Chatura Dilan Perera",
+            "email": "dilan@dilan.me"
+        }
+    ],
+    "require": {
+        "kreait/firebase-php": "^4.35",
+        "google/auth": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Inc\\" : "./inc"
+        }
+    }
+}

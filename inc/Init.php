@@ -15,10 +15,11 @@ final class Init {
     static function get_services() {
         return [
             Pages\Admin\AdminPage::class,
-            Base\Enqueue::class,
+            Controllers\EnqueueController::class,
             Base\SettingLinks::class,
-            API\RestAPIController::class,
-            Services\FireAuthService::class
+            Controllers\RestAPIController::class,
+            Services\FireAuthService::class,
+            Controllers\WidgetController::class
         ];
     }
 

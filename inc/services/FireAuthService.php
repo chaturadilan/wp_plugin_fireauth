@@ -26,7 +26,6 @@ class FireAuthService extends BaseController
         add_action('user_register', array($this, 'registerNewUser'));
         add_action('profile_update', array($this, 'profileUpdate'));
         add_action('after_password_reset', array($this, 'afterPasswordReset'));
-        add_filter('random_password', array($this, 'generatedPasswordChanged'));
 
         $firebaseServiceConfigs = json_decode(get_option('txt_firebase_service_config_json'));
         $factory = (new Factory())
@@ -38,7 +37,7 @@ class FireAuthService extends BaseController
     {
         $user = get_user_by('ID', $userId);
         try {
-            $fbUser = $this->auth->createUserWithEmailAndPassword($user->data->user_email, $this->password);
+            $fbUser = $this->auth->createUserWithEmailAndPassword($user->data->user_email, $user->data->user_pass);
             $this->password = "";
             update_user_meta($user->ID, 'firebaseID', $fbUser->uid);
             update_user_meta($user->ID, 'firebaseProfile', 'email');
@@ -61,9 +60,6 @@ class FireAuthService extends BaseController
         $this->auth->changeUserPassword($fbUserId, $_POST['pass1']);
     }
 
-    function generatedPasswordChanged($password) {
-        $this->$password = $password;
-    }
 
 
 }

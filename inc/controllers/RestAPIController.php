@@ -8,11 +8,11 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\API;
+namespace Inc\Controllers;
 
+use Inc\API\FireAuthRestAPI;
 use WP_REST_Controller;
 use WP_REST_Server;
-
 
 class RestAPIController extends WP_REST_Controller
 {
@@ -56,6 +56,23 @@ class RestAPIController extends WP_REST_Controller
                 'permission_callback' => array($this, 'permissions_check'),
             ]
         ]);
+
+        register_rest_route($this->namespace, '/' . 'user_login', [
+            [
+                'methods' => WP_REST_Server::CREATABLE,
+                'callback' => array($this->restAPI, 'user_login'),
+                'permission_callback' => array($this, 'permissions_check'),
+            ]
+        ]);
+
+        register_rest_route($this->namespace, '/' . 'user_register', [
+            [
+                'methods' => WP_REST_Server::CREATABLE,
+                'callback' => array($this->restAPI, 'user_register'),
+                'permission_callback' => array($this, 'permissions_check'),
+            ]
+        ]);
+
 
     }
 

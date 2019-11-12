@@ -8,8 +8,6 @@
  * Author URI: http://www.dilan.me
  */
 
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
 
 if (!defined('ABSPATH')) die;
 
@@ -25,9 +23,9 @@ if (class_exists("Inc\\Init")) {
 }
 
 function activate_fireauth() {
-    Activate::activate();
+    ActivateDeactivateController::activate();
 }
 
 function deactivate_fireauth() {
-    Deactivate::deactivate();
+    ActivateDeactivateController::deactivate();
 }

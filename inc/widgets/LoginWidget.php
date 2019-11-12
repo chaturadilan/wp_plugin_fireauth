@@ -23,7 +23,8 @@ class LoginWidget extends \WP_Widget
     private $plugin_path;
     private $plugin_url;
 
-    function __construct() {
+    function __construct()
+    {
         $this->widget_ID = 'fireauth_login_widget';
         $this->widget_name = 'Fireauth Login Widget';
         $this->widget_options = array(
@@ -42,19 +43,29 @@ class LoginWidget extends \WP_Widget
     {
         $this->plugin_path = $plugin_path;
         $this->plugin_url = $plugin_url;
-        parent::__construct( $this->widget_ID, $this->widget_name, $this->widget_options, $this->control_options );
-        add_action( 'widgets_init', array( $this, 'initWidget' ) );
+        parent::__construct($this->widget_ID, $this->widget_name, $this->widget_options, $this->control_options);
+        add_action('widgets_init', array($this, 'initWidget'));
     }
 
     public function initWidget()
     {
-        register_widget( $this );
+        register_widget($this);
     }
 
-    public function widget( $args, $instance ) {
+    public function widget($args, $instance)
+    {
+        $isFacebookEnabled = get_option('chk_facebook');
+        $isGoogleEnabled = get_option('chk_google');
+        $isUserLoggedIn = is_user_logged_in();
         $m = new Mustache_Engine();
         echo $m->render(file_get_contents($this->plugin_path . 'templates/widgets/login.mustache'),
-            ['site_url' => get_site_url(), 'plugin_url' => $this->plugin_url]);
+            [
+                'site_url' => get_site_url(),
+                'plugin_url' => $this->plugin_url,
+                'facebookEnabled' => $isFacebookEnabled,
+                'googleEnabled' => $isGoogleEnabled,
+                'isUserLoggedIn' => $isUserLoggedIn
+            ]);
     }
 
 

@@ -18,7 +18,6 @@ final class Init {
             Controllers\EnqueueController::class,
             Base\SettingLinks::class,
             Controllers\RestAPIController::class,
-            Services\FireAuthService::class,
             Controllers\WidgetController::class
         ];
     }

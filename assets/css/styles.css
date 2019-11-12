@@ -1,9 +1,9 @@
 
 .google-btn {
-    width: 210px;
+    width: 230px;
     height: 42px;
     margin: 4px;
-    background-color: #4285f4;
+    background-color: #de5246;
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
 }
@@ -35,7 +35,6 @@
     font-family: "Roboto";
 }
 
-
 .google-btn:hover {
     box-shadow: 0 0 6px #4285f4;
     cursor: pointer;
@@ -45,13 +44,11 @@
     background: #1669F2;
 }
 
-
-
 .facebook-btn {
     width: 230px;
     height: 42px;
     margin: 4px;
-    background-color: #3b5998;
+    background-color: #1977F3;
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
 }

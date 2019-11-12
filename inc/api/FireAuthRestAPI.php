@@ -14,6 +14,7 @@ use Inc\Base\BaseController;
 use Inc\Base\Utils;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
+use WP_Error;
 
 class FireAuthRestAPI extends BaseController
 {
@@ -22,8 +23,17 @@ class FireAuthRestAPI extends BaseController
     {
         header('Content-Type: text/html');
         $type = $request->get_param('type');
+
+        if(!get_option('chk_facebook') && $type == "facebook") {
+            return new WP_Error( 'facebook_not_enabled', 'Facebook login is not enabled', array( 'status' => 403 ));
+        }
+        if(!get_option('chk_google') && $type == "google") {
+            return new WP_Error( 'google_not_enabled', 'Google login is not enabled', array( 'status' => 403 ));
+        }
+
         $firebaseConfigs = json_decode(get_option('txt_firebase_config_json'));
         $siteUrl = get_site_url();
+        $pluginUrl = $this->plugin_url;
         require_once($this->plugin_path . 'templates/api/auth.php');
         exit();
     }
@@ -59,53 +69,4 @@ class FireAuthRestAPI extends BaseController
         update_user_caches($user);
         exit();
     }
-
-    public function user_login($request)
-    {
-        $user = get_user_by('login', $_POST['username']);
-        $isPasswordCorrect = wp_check_password($_POST['password'], $user->data->user_pass, $user->ID);
-        if ($isPasswordCorrect) {
-            clean_user_cache($user->ID);
-            wp_clear_auth_cookie();
-            wp_set_current_user($user->ID);
-            wp_set_auth_cookie($user->ID, true, false);
-            update_user_caches($user);
-        }
-        header("Location: " . get_site_url());
-        exit();
-    }
-
-    public function user_register($request)
-    {
-
-        $userName = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        $firebaseServiceConfigs = json_decode(get_option('txt_firebase_service_config_json'));
-        $factory = (new Factory())
-            ->withServiceAccount(ServiceAccount::fromJson(json_encode($firebaseServiceConfigs)));
-        $auth = $factory->createAuth();
-        $fbUser = $auth->createUserWithEmailAndPassword($email, $password);
-
-        $user_id = wp_insert_user(['user_login' => $userName,
-            'user_pass' => $password,
-            'user_email' => $fbUser->email,
-            'nickname' => $fbUser->displayName,
-            'display_name' => $fbUser->displayName,
-        ]);
-        update_user_meta($user_id, 'firebaseID', $fbUser->uid);
-        update_user_meta($user_id, 'firebaseProfile', $fbUser->providerData[0]->providerId);
-        $user = get_user_by('email', $email);
-        clean_user_cache($user->ID);
-        wp_clear_auth_cookie();
-        wp_set_current_user($user->ID);
-        wp_set_auth_cookie($user->ID, true, false);
-        update_user_caches($user);
-
-
-        header("Location: " . get_site_url());
-        exit();
-    }
-
 }

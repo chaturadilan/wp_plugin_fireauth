@@ -1,52 +1,18 @@
-<div id="log_forms" class="log_forms">
-
-    <form name="login" id="login" method="post" action="{{site_url}}/wp-json/fireauth/v1/user_login" autocomplete="off" novalidate="novalidate">
-
-        <div class="login-form-group">
-            <label for="username">Username </label>
-            <input type="text" name="username" required="">
-        </div>
-        <div class="login-form-group">
-            <label for="password">Password </label>
-            <input type="password" name="password" required="">
-        </div>
-        <div class="login-form-group">
-            <input name="login" type="submit" value="Login">
-        </div>
-        <div class="login-form-group">
-            <div class="facebook-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=facebook';">
-                <div class="facebook-icon-wrapper">
-                    <img class="facebook-icon" src="{{plugin_url}}assets/imgs/facebook_logo.svg"/>
-                </div>
-                <p class="btn-text"><b>SIGN IN WITH FACEBOOK</b></p>
+{{^isUserLoggedIn}}
+    {{#facebookEnabled}}
+        <div class="facebook-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=facebook';">
+            <div class="facebook-icon-wrapper">
+                <img class="facebook-icon" src="{{plugin_url}}assets/imgs/facebook_logo.svg"/>
             </div>
-            <div class="google-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=google';">
-                <div class="google-icon-wrapper">
-                    <img class="google-icon" src="{{plugin_url}}assets/imgs/google_logo.svg"/>
-                </div>
-                <p class="btn-text"><b>SIGN IN WITH GOOGLE</b></p>
+            <p class="btn-text"><b>SIGN IN WITH FACEBOOK</b></p>
+        </div>
+    {{/facebookEnabled}}
+    {{#googleEnabled}}
+        <div class="google-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=google';">
+            <div class="google-icon-wrapper">
+                <img class="google-icon" src="{{plugin_url}}assets/imgs/google_logo.svg"/>
             </div>
+            <p class="btn-text"><b>SIGN IN WITH GOOGLE</b></p>
         </div>
-    </form>
-
-
-    <form name="register" id="register" method="post" action="{{site_url}}/wp-json/fireauth/v1/user_register" autocomplete="off" novalidate="novalidate">
-        <div class="login-form-group">
-            <label for="username">Username </label>
-            <input type="text" name="username" required="">
-        </div>
-        <div class="login-form-group">
-            <label for="email">Username </label>
-            <input type="text" name="email" required="">
-        </div>
-        <div class="login-form-group">
-            <label for="password">Password </label>
-            <input type="password" name="password" required="">
-        </div>
-        <div class="register-form-group">
-            <input name="login" type="submit" value="Register">
-        </div>
-    </form>
-
-
-</div>
+    {{/googleEnabled}}
+{{/isUserLoggedIn}}

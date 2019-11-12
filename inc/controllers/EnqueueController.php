@@ -12,7 +12,7 @@ namespace Inc\Controllers;
 
 use Inc\Base\BaseController;
 
-define( 'ASSETS_VERSION', '1.0.8' );
+define( 'ASSETS_VERSION', '1.0.11' );
 
 class EnqueueController extends BaseController {
 
@@ -26,6 +26,9 @@ class EnqueueController extends BaseController {
         wp_enqueue_script( 'fireauth_admin_scripts', $this->plugin_url . 'assets/js/admin_scripts.js', array('jquery'), ASSETS_VERSION, true);
 
         wp_enqueue_script( 'fireauth_admintabs', $this->plugin_url . 'assets/js/admin_tabs.js' );
+
+        wp_register_style('fireauth_dashicons', $this->plugin_url .'assets/icos/css/fire.css');
+        wp_enqueue_style('fireauth_dashicons');
     }
 
     function enqueue() {

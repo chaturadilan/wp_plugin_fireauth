@@ -46,7 +46,7 @@ class AdminPage extends BaseController {
                 'callback' => function () {
                     return require_once($this->plugin_path . 'templates/admin/options-general.php');
                 },
-                'icon_url' => 'dashicons-store',
+                'icon_url' => 'dashicons-image-filter',
                 'position' => 110
             ]
         ];

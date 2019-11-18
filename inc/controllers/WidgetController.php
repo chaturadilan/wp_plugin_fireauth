@@ -5,10 +5,10 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Controllers;
+namespace Fireauth\Inc\Controllers;
 
-use Inc\Base\BaseController;
-use Inc\Widgets\LoginWidget;
+use Fireauth\Inc\Base\BaseController;
+use Fireauth\Inc\Widgets\LoginWidget;
 
 class WidgetController extends BaseController
 {

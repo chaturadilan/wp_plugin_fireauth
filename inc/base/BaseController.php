@@ -5,7 +5,7 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Base;
+namespace Fireauth\Inc\Base;
 
 class BaseController {
 

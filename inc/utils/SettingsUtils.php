@@ -5,7 +5,7 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Utils;
+namespace Fireauth\Inc\Utils;
 
 class SettingsUtils {
 

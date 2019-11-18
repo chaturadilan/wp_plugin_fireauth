@@ -5,12 +5,12 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Pages\Admin;
+namespace Fireauth\Inc\Pages\Admin;
 
 
-use Inc\Base\BaseController;
-use Inc\Callbacks\ManagerCallbacks;
-use Inc\Utils\SettingsUtils;
+use Fireauth\Inc\Base\BaseController;
+use Fireauth\Inc\Callbacks\ManagerCallbacks;
+use Fireauth\Inc\Utils\SettingsUtils;
 
 class AdminPage extends BaseController {
 

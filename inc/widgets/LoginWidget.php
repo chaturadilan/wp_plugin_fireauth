@@ -5,7 +5,7 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Widgets;
+namespace Fireauth\Inc\Widgets;
 
 use Mustache_Engine;
 

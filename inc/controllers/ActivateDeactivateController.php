@@ -5,7 +5,7 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Controllers;
+namespace Fireauth\Inc\Controllers;
 
 class ActivateDeactivateController
 {

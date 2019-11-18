@@ -6,10 +6,10 @@
  */
 
 
-namespace Inc\API;
+namespace Fireauth\Inc\API;
 
-use Inc\Base\BaseController;
-use Inc\Base\Utils;
+use Fireauth\Inc\Base\BaseController;
+use Fireauth\Inc\Base\Utils;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 use WP_Error;

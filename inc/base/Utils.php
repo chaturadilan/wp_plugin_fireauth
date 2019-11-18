@@ -5,9 +5,9 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Base;
+namespace Fireauth\Inc\Base;
 
-use Inc\Base\BaseController;
+use Fireauth\Inc\Base\BaseController;
 
 class Utils extends BaseController {
 

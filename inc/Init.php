@@ -5,17 +5,17 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc;
+namespace Fireauth\Inc;
 
 final class Init {
 
     static function get_services() {
         return [
-            Pages\Admin\AdminPage::class,
-            Controllers\EnqueueController::class,
-            Base\SettingLinks::class,
-            Controllers\RestAPIController::class,
-            Controllers\WidgetController::class
+            \Fireauth\Inc\Pages\Admin\AdminPage::class,
+            \Fireauth\Inc\Controllers\EnqueueController::class,
+            \Fireauth\Inc\Base\SettingLinks::class,
+            \Fireauth\Inc\Controllers\RestAPIController::class,
+            \Fireauth\Inc\Controllers\WidgetController::class
         ];
     }
 

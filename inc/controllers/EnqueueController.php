@@ -5,9 +5,9 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Controllers;
+namespace Fireauth\Inc\Controllers;
 
-use Inc\Base\BaseController;
+use Fireauth\Inc\Base\BaseController;
 
 define( 'ASSETS_VERSION', '1.0.11' );
 

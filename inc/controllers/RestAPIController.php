@@ -5,9 +5,9 @@
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Controllers;
+namespace Fireauth\Inc\Controllers;
 
-use Inc\API\FireAuthRestAPI;
+use Fireauth\Inc\API\FireAuthRestAPI;
 use WP_REST_Controller;
 use WP_REST_Server;
 

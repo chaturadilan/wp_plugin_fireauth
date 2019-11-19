@@ -9,7 +9,7 @@ namespace Fireauth\Inc\Controllers;
 
 use Fireauth\Inc\Base\BaseController;
 
-define( 'ASSETS_VERSION', '1.0.11' );
+define( 'FIREAUTH_ASSETS_VERSION', '1.0.12' );
 
 class EnqueueController extends BaseController {
 
@@ -19,8 +19,8 @@ class EnqueueController extends BaseController {
     }
 
     function admin_enqueue() {
-        wp_enqueue_style('fireauth_admin_styles', $this->plugin_url .'assets/css/admin_styles.css', null,ASSETS_VERSION );
-        wp_enqueue_script( 'fireauth_admin_scripts', $this->plugin_url . 'assets/js/admin_scripts.js', array('jquery'), ASSETS_VERSION, true);
+        wp_enqueue_style('fireauth_admin_styles', $this->plugin_url .'assets/css/admin_styles.css', null,FIREAUTH_ASSETS_VERSION );
+        wp_enqueue_script( 'fireauth_admin_scripts', $this->plugin_url . 'assets/js/admin_scripts.js', array('jquery'), FIREAUTH_ASSETS_VERSION, true);
 
         wp_enqueue_script( 'fireauth_admintabs', $this->plugin_url . 'assets/js/admin_tabs.js' );
 
@@ -29,8 +29,8 @@ class EnqueueController extends BaseController {
     }
 
     function enqueue() {
-        wp_enqueue_style('fireauth_styles', $this->plugin_url .'assets/css/styles.css', null,ASSETS_VERSION );
-        wp_enqueue_script('fireauth_scripts', $this->plugin_url .'assets/js/scripts.js', array('jquery'), ASSETS_VERSION, true );
+        wp_enqueue_style('fireauth_styles', $this->plugin_url .'assets/css/styles.css', null,FIREAUTH_ASSETS_VERSION );
+        wp_enqueue_script('fireauth_scripts', $this->plugin_url .'assets/js/scripts.js', array('jquery'), FIREAUTH_ASSETS_VERSION, true );
     }
 
 

@@ -8,25 +8,21 @@
  * Author URI: http://www.dilan.me
  */
 
-use Fireauth\Inc\Controllers\ActivateDeactivateController;
-
 if (!defined('ABSPATH')) die;
 
 if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-register_activation_hook(__FILE__, 'activate_fireauth');
-register_deactivation_hook(__FILE__, 'deactivate_fireauth');
 
 if (class_exists("Fireauth\\Inc\\Init")) {
     Fireauth\Inc\Init::register_services();
 }
 
 function activate_fireauth() {
-    ActivateDeactivateController::activate();
+    \Fireauth\Inc\Controllers\ActivateDeactivateController::activate();
 }
 
 function deactivate_fireauth() {
-    ActivateDeactivateController::deactivate();
+    \Fireauth\Inc\Controllers\ActivateDeactivateController::deactivate();
 }

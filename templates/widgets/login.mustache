@@ -1,0 +1,18 @@
+{{^isUserLoggedIn}}
+    {{#facebookEnabled}}
+        <div class="facebook-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=facebook';">
+            <div class="facebook-icon-wrapper">
+                <img class="facebook-icon" src="{{plugin_url}}assets/imgs/facebook_logo.svg"/>
+            </div>
+            <p class="btn-text"><b>SIGN IN WITH FACEBOOK</b></p>
+        </div>
+    {{/facebookEnabled}}
+    {{#googleEnabled}}
+        <div class="google-btn" onclick="location.href='{{site_url}}/wp-json/fireauth/v1/auth?type=google';">
+            <div class="google-icon-wrapper">
+                <img class="google-icon" src="{{plugin_url}}assets/imgs/google_logo.svg"/>
+            </div>
+            <p class="btn-text"><b>SIGN IN WITH GOOGLE</b></p>
+        </div>
+    {{/googleEnabled}}
+{{/isUserLoggedIn}}

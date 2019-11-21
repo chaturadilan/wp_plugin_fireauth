@@ -3,13 +3,10 @@
  * Plugin Name: FireAuth Plugin
  * Plugin URI: http://www.dilan.me
  * Description: Plugin Firebase Authentication.
- * Version: 1.0
+ * Version: 1.0.3
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */
-
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
 
 if (!defined('ABSPATH')) die;
 
@@ -17,17 +14,15 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-register_activation_hook(__FILE__, 'activate_fireauth');
-register_deactivation_hook(__FILE__, 'deactivate_fireauth');
 
-if (class_exists("Inc\\Init")) {
-    Inc\Init::register_services();
+if (class_exists("Fireauth\\Inc\\Init")) {
+    Fireauth\Inc\Init::register_services();
 }
 
 function activate_fireauth() {
-    Activate::activate();
+    \Fireauth\Inc\Controllers\ActivateDeactivateController::activate();
 }
 
 function deactivate_fireauth() {
-    Deactivate::deactivate();
+    \Fireauth\Inc\Controllers\ActivateDeactivateController::deactivate();
 }

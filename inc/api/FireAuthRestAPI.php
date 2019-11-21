@@ -1,19 +1,18 @@
 <?php
 
 /**
- * Plugin Name: FireAuth Plugin
- * Plugin URI: http://www.dilan.me
- * Description: Plugin Firebase Authentication.
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\API;
 
-use Inc\Base\BaseController;
-use Inc\Base\Utils;
+namespace Fireauth\Inc\API;
+
+use Fireauth\Inc\Base\BaseController;
+use Fireauth\Inc\Base\Utils;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
+use WP_Error;
 
 class FireAuthRestAPI extends BaseController
 {
@@ -22,8 +21,17 @@ class FireAuthRestAPI extends BaseController
     {
         header('Content-Type: text/html');
         $type = $request->get_param('type');
+
+        if(!get_option('chk_facebook') && $type == "facebook") {
+            return new WP_Error( 'facebook_not_enabled', 'Facebook login is not enabled', array( 'status' => 403 ));
+        }
+        if(!get_option('chk_google') && $type == "google") {
+            return new WP_Error( 'google_not_enabled', 'Google login is not enabled', array( 'status' => 403 ));
+        }
+
         $firebaseConfigs = json_decode(get_option('txt_firebase_config_json'));
         $siteUrl = get_site_url();
+        $pluginUrl = $this->plugin_url;
         require_once($this->plugin_path . 'templates/api/auth.php');
         exit();
     }
@@ -59,6 +67,4 @@ class FireAuthRestAPI extends BaseController
         update_user_caches($user);
         exit();
     }
-
-
 }

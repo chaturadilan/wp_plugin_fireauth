@@ -10,11 +10,12 @@
     ],
     "require": {
         "kreait/firebase-php": "^4.35",
-        "google/auth": "^1.6"
+        "google/auth": "^1.6",
+        "mustache/mustache": "^2.12"
     },
     "autoload": {
         "psr-4": {
-            "Inc\\" : "./inc"
+            "Fireauth\\Inc\\" : "./inc"
         }
     }
 }

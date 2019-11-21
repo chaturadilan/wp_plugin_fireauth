@@ -1,19 +1,16 @@
 <?php
 
 /**
- * Plugin Name: FireAuth Plugin
- * Plugin URI: http://www.dilan.me
- * Description: Plugin Firebase Authentication.
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Pages\Admin;
+namespace Fireauth\Inc\Pages\Admin;
 
 
-use Inc\Base\BaseController;
-use Inc\Callbacks\ManagerCallbacks;
-use Inc\Utils\SettingsUtils;
+use Fireauth\Inc\Base\BaseController;
+use Fireauth\Inc\Callbacks\ManagerCallbacks;
+use Fireauth\Inc\Utils\SettingsUtils;
 
 class AdminPage extends BaseController {
 
@@ -46,7 +43,7 @@ class AdminPage extends BaseController {
                 'callback' => function () {
                     return require_once($this->plugin_path . 'templates/admin/options-general.php');
                 },
-                'icon_url' => 'dashicons-store',
+                'icon_url' => 'dashicons-image-filter',
                 'position' => 110
             ]
         ];

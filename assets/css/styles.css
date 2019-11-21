@@ -1,52 +1,81 @@
-.nav-tabs {
-    float: left;
-    width: 100%;
-    margin: 0;
-    list-style-type: none;
-    border-bottom: 1px solid transparent;
+
+.google-btn {
+    width: 230px;
+    height: 42px;
+    margin: 4px;
+    background-color: #de5246;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
 }
 
-.nav-tabs > li {
-    float: left;
-    margin-bottom: -1px;
-}
-
-.nav-tabs > li > a {
-    margin-right: 2px;
-    line-height: 1.5;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
-    float: left;
-    text-decoration: none;
-}
-
-.nav-tabs > li > a:hover {
-    border-color: #eee #eee #ddd;
-}
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
-    color: #555;
-    cursor: default;
+.google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
     background-color: #fff;
-    border-color: transparent;
 }
 
-.tab-content > .tab-pane {
-    float: left;
-    width: 100%;
-    display: none;
+.google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
 }
 
-.tab-content > .tab-pane.active {
-    display: block;
-    padding: 20px;
+.btn-text {
+    float: right;
+    margin: 9px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+
+.google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+    cursor: pointer;
+}
+
+.google-btn:active {
+    background: #1669F2;
+}
+
+.facebook-btn {
+    width: 230px;
+    height: 42px;
+    margin: 4px;
+    background-color: #1977F3;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.facebook-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
     background-color: #fff;
-    box-shadow: 0 5px 4px -2px rgba(0, 0, 0, 0.15);
-    border-spacing: 0;
-    width: 98%;
-    clear: both;
-    margin: 0;
+}
+
+.facebook-icon {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.facebook-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
+    cursor: pointer;
+}
+
+.facebook-btn:active {
+    background: #1669F2;
 }

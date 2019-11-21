@@ -1,24 +1,21 @@
 <?php
 
 /**
- * Plugin Name: FireAuth Plugin
- * Plugin URI: http://www.dilan.me
- * Description: Plugin Firebase Authentication.
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc;
+namespace Fireauth\Inc;
 
 final class Init {
 
     static function get_services() {
         return [
-            Pages\Admin\AdminPage::class,
-            Base\Enqueue::class,
-            Base\SettingLinks::class,
-            API\RestAPIController::class,
-            Services\FireAuthService::class
+            \Fireauth\Inc\Pages\Admin\AdminPage::class,
+            \Fireauth\Inc\Controllers\EnqueueController::class,
+            \Fireauth\Inc\Base\SettingLinks::class,
+            \Fireauth\Inc\Controllers\RestAPIController::class,
+            \Fireauth\Inc\Controllers\WidgetController::class
         ];
     }
 

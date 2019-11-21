@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Plugin Name: FireAuth Plugin
- * Plugin URI: http://www.dilan.me
- * Description: Plugin Firebase Authentication.
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */
 
-namespace Inc\Base;
+namespace Fireauth\Inc\Base;
 
-use Inc\Base\BaseController;
+use Fireauth\Inc\Base\BaseController;
 
 class Utils extends BaseController {
 

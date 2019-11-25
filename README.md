@@ -4,7 +4,7 @@ Donate link: https://www.dilan.me
 Tags: firebase, auth, social
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.0.3
+Stable tag: 1.3.0
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,5 +65,5 @@ Please visit and contact the author of the plugin
 
 == Changelog ==
 
-= 1.0.3 =
-* Releasing the stable 1.0.3 version of the plugin
+= 1.3.0 =
+* Releasing the first stable version of the plugin

@@ -22,16 +22,75 @@ class FireAuthRestAPI extends BaseController
         header('Content-Type: text/html');
         $type = $request->get_param('type');
 
-        if(!get_option('chk_facebook') && $type == "facebook") {
-            return new WP_Error( 'facebook_not_enabled', 'Facebook login is not enabled', array( 'status' => 403 ));
+        if (!get_option('chk_facebook') && $type == "facebook") {
+            return new WP_Error('facebook_not_enabled', 'Facebook login is not enabled', array('status' => 403));
         }
-        if(!get_option('chk_google') && $type == "google") {
-            return new WP_Error( 'google_not_enabled', 'Google login is not enabled', array( 'status' => 403 ));
+        if (!get_option('chk_google') && $type == "google") {
+            return new WP_Error('google_not_enabled', 'Google login is not enabled', array('status' => 403));
         }
 
         $firebaseConfigs = json_decode(get_option('txt_firebase_config_json'));
         $siteUrl = get_site_url();
         $pluginUrl = $this->plugin_url;
+        wp_enqueue_script('fireauth_firebase_app', $this->plugin_url . 'assets/js/firebase-app.js');
+        wp_enqueue_script('fireauth_firebase_auth', $this->plugin_url . 'assets/js/firebase-auth.js');
+        wp_add_inline_script('fireauth_firebase_auth', '
+            var firebaseConfig = {
+                apiKey: "' . $firebaseConfigs->apiKey . '",
+                authDomain: "' . $firebaseConfigs->authDomain . '",
+                projectId: "' . $firebaseConfigs->projectId . '",
+                messagingSenderId: "' . $firebaseConfigs->messagingSenderId . '",
+                appId: "' . $firebaseConfigs->appId . '",
+            };
+        
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);       
+        ', 'after');
+
+
+        switch ($type) {
+            case 'google':
+                wp_add_inline_script('fireauth_firebase_auth', '
+                    var provider = new firebase.auth.GoogleAuthProvider();
+                ', 'after');
+                break;
+            case 'facebook' :
+                wp_add_inline_script('fireauth_firebase_auth', '
+                    var provider = new firebase.auth.FacebookAuthProvider();
+                ', 'after');
+                break;
+        }
+
+        wp_add_inline_script('fireauth_firebase_auth', '
+                firebase.auth().getRedirectResult().then(function (result) {
+                if (result.credential == undefined) {
+                    firebase.auth().signInWithRedirect(provider);
+                } else {
+        
+                    firebase.auth().onAuthStateChanged((user) => {
+                        if (user) {
+                            var data = JSON.stringify({userId: user.uid});
+                            var xhr = new XMLHttpRequest();
+                            xhr.open(\'POST\', \'login\', true);
+                            xhr.onload = function () {
+                                window.location.replace("<?php echo $siteUrl ?>");
+                            };
+                            xhr.send(data);
+                        } else {
+                            firebase.auth().signInWithRedirect(provider);
+                        }
+                    });
+        
+                }
+            }).catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+            });
+        ', 'after');
+
+        wp_print_scripts();
         require_once($this->plugin_path . 'templates/api/auth.php');
         exit();
     }

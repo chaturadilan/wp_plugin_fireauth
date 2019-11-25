@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Fireauth Wordpress Plugin ===
 Contributors: bcdilan
 Donate link: https://www.dilan.me
 Tags: firebase, auth, social
@@ -13,7 +13,8 @@ Fireauth is a plugin that enables Firebase authentication in Wordpress
 
 == Description ==
 
-Fireauth is a plugin that enables Firebase authentication in Wordpress
+Fireauth is a plugin that enables Firebase authentication in Wordpress. It is an open source plugin.
+You can get the source from Github: https://github.com/chaturadilan/wp_plugin_fireauth
 
 #### Features
 
@@ -55,13 +56,13 @@ Chatura Dilan Perera : https://www.dilan.me
 
 == Frequently Asked Questions ==
 
-= How to contact more on adding features to this plugin =
+= Where to contact adding more features to this plugin =
 
 Please visit and contact the author of the plugin
 
 == Screenshots ==
 
-1. Fireauth Configurations
+1. Fireauth Wordpress Plugin Configurations
 
 == Changelog ==
 

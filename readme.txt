@@ -68,6 +68,9 @@ Please visit and contact the author of the plugin
 
 == Changelog ==
 
+= 1.3.2 =
+* Fixing bugs
+
 = 1.3.0 =
 * Adding icons, readme changes
 

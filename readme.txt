@@ -64,7 +64,7 @@ Please visit and contact the author of the plugin
 == Screenshots ==
 
 1. Fireauth Wordpress Plugin Configurations
-1. Fireauth Login Widget
+2. Fireauth Login Widget
 
 == Changelog ==
 

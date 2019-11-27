@@ -21,7 +21,7 @@ You can get the source from Github: https://github.com/chaturadilan/wp_plugin_fi
 * Facebook Authentication
 * Google Authentication
 
-#### Working on Progress
+#### Working in Progress
  * Email Authentication
  
 #### About the Developers
@@ -53,6 +53,7 @@ Chatura Dilan Perera : https://www.dilan.me
 9. Copy the JSON inside the private key to *Firebase Service Config JSON* field.
 10. Enable Facebook Login and Google Login in the plugin settings.
 11. Add Fireauth Login Widget to your website from Widgets.
+12. Login with Facebook and Google.
 
 == Frequently Asked Questions ==
 

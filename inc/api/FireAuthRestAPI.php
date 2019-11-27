@@ -73,7 +73,7 @@ class FireAuthRestAPI extends BaseController
                             var xhr = new XMLHttpRequest();
                             xhr.open(\'POST\', \'login\', true);
                             xhr.onload = function () {
-                                window.location.replace("<?php echo $siteUrl ?>");
+                                window.location.replace("' . $siteUrl . '");
                             };
                             xhr.send(data);
                         } else {

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FireAuth Plugin
  * Description: Plugin Firebase Authentication.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Chatura Dilan
  * Author URI: http://www.dilan.me
  */

@@ -4,7 +4,7 @@ Donate link: https://www.dilan.me
 Tags: firebase, auth, social
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.3.0
+Stable tag: 1.3.2
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -64,8 +64,12 @@ Please visit and contact the author of the plugin
 == Screenshots ==
 
 1. Fireauth Wordpress Plugin Configurations
+2. Fireauth Login Widget
 
 == Changelog ==
+
+= 1.3.2 =
+* Fixing bugs
 
 = 1.3.0 =
 * Adding icons, readme changes

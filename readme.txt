@@ -1,10 +1,10 @@
-=== Fireauth Wordpress Plugin ===
+=== Fireauth - Enable Firebase Authentication ===
 Contributors: bcdilan
 Donate link: https://www.dilan.me
 Tags: firebase, auth, social
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -67,6 +67,9 @@ Please visit and contact the author of the plugin
 2. Fireauth Login Widget
 
 == Changelog ==
+
+= 1.3.3 =
+* Fixing bugs - setting links
 
 = 1.3.2 =
 * Fixing bugs

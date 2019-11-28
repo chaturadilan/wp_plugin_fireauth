@@ -1,4 +1,4 @@
-=== Fireauth Wordpress Plugin ===
+=== Fireauth - Enable Firebase Authentication ===
 Contributors: bcdilan
 Donate link: https://www.dilan.me
 Tags: firebase, auth, social

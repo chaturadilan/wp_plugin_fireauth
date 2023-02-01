@@ -14,7 +14,7 @@ class SettingLinks extends BaseController {
     }
 
     function settings_links($links) {
-        array_push($links, '<a href="options-general.php?page=fireauth_plugin">Settings</a>');
+        array_push($links, '<a href="admin.php?page=fireauth_plugin">Settings</a>');
         return $links;
     }
 }
